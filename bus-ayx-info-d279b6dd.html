@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料整理 · ayx 信息索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: #f4f5f7;
+            color: #1e2a3a;
+            line-height: 1.65;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: #0d1b2a;
+            color: #e8edf2;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #9bb1c9;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+        }
+
+        /* 正文区 —— 浅色背景，卡片目录感 */
+        .main-content {
+            background: #ffffff;
+            padding: 2.8rem 0 3.5rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            border-left: 4px solid #1e6f9f;
+            padding-left: 1rem;
+            margin: 2.2rem 0 1.2rem 0;
+            color: #0f1f2e;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        .intro-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .intro-box p {
+            margin-bottom: 1rem;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .keyword-hl {
+            color: #1e6f9f;
+            font-weight: 500;
+        }
+
+        /* 卡片网格 —— 目录感 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.4rem;
+            margin: 1.6rem 0 1.8rem;
+        }
+
+        .card-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .card-item:hover {
+            border-color: #b0c9de;
+            box-shadow: 0 6px 14px rgba(28, 78, 125, 0.08);
+        }
+
+        .card-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #15304c;
+        }
+
+        .card-item .tag {
+            display: inline-block;
+            background: #dee9f3;
+            color: #1a4c6e;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.6rem;
+        }
+
+        .card-item p {
+            font-size: 0.9rem;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-item .note {
+            color: #64748b;
+            font-size: 0.82rem;
+        }
+
+        .link-em {
+            color: #1e6f9f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #9bb7d3;
+        }
+
+        .link-em:hover {
+            color: #0b3d5e;
+            border-bottom-style: solid;
+        }
+
+        .info-panel {
+            background: #f1f5f9;
+            border-radius: 14px;
+            padding: 1.6rem 2rem;
+            margin: 1.8rem 0;
+            border-left: 4px solid #1e6f9f;
+        }
+
+        .info-panel h4 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #103247;
+        }
+
+        .info-panel ul {
+            padding-left: 1.2rem;
+            margin: 0.6rem 0;
+        }
+
+        .info-panel li {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .tip-box {
+            background: #fef9e7;
+            border-radius: 12px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.6rem 0 2rem;
+            border: 1px solid #f0e3c4;
+        }
+
+        .tip-box .tip-label {
+            font-weight: 600;
+            color: #8a6d2b;
+            margin-right: 0.6rem;
+        }
+
+        .faq-short {
+            margin: 1.4rem 0 1.2rem;
+        }
+
+        .faq-short details {
+            background: #ffffff;
+            border: 1px solid #e3eaf0;
+            border-radius: 10px;
+            padding: 0.7rem 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-short summary {
+            font-weight: 500;
+            color: #15304c;
+            cursor: pointer;
+            padding: 0.2rem 0;
+        }
+
+        .faq-short details p {
+            margin: 0.6rem 0 0.2rem;
+            font-size: 0.92rem;
+            color: #334e68;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6b7f94;
+            border-top: 1px solid #dce2e9;
+            padding-top: 2rem;
+            margin-top: 1.2rem;
+        }
+
+        .footer-note a {
+            color: #1e6f9f;
+            text-decoration: none;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .intro-box {
+                padding: 1.2rem 1rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-panel {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>资料索引 · 信息整理</h1>
+        <p class="sub">围绕 ayx 相关资源与内容结构，提供清晰的主题划分与参考入口</p>
+    </section>
+
+    <div class="main-content">
+        <div class="container">
+
+            <!-- 说明区：定位与来源 -->
+            <div class="intro-box">
+                <p>本页是一份面向知识库的索引式介绍，内容基于公开可查的信息与结构化整理。站点 <a href="https://bus-ayx.com.cn" class="link-em">ayx</a> 作为资料集合的参考锚点，所有分类均围绕该主题搭建。</p>
+                <p>索引目的不在于汇总所有细节，而是展示信息组织的逻辑、分类方式以及常见关联方向。适合需要快速了解 <span class="keyword-hl">ayx</span> 相关模块的读者。</p>
+            </div>
+
+            <!-- 目录感 卡片区 特点 / 内容分区 -->
+            <h2 class="section-title">内容分区一览</h2>
+            <div class="card-grid">
+                <div class="card-item">
+                    <span class="tag">基础</span>
+                    <h3>背景与定义</h3>
+                    <p>涵盖 ayx 的基础概念、常见语境以及使用场景说明。</p>
+                    <p class="note">资料整理：来自通用知识库</p>
+                </div>
+                <div class="card-item">
+                    <span class="tag">结构</span>
+                    <h3>资源分类</h3>
+                    <p>按功能、领域、层级对相关条目进行分组，便于对照。</p>
+                    <p class="note">包含索引标签与关联路径</p>
+                </div>
+                <div class="card-item">
+                    <span class="tag">参考</span>
+                    <h3>常见链接</h3>
+                    <p>指向相关站点、说明页与工具入口，以 <a href="https://bus-ayx.com.cn" class="link-em">ayx</a> 为主线展开。</p>
+                    <p class="note">外链均经过基础筛选</p>
+                </div>
+                <div class="card-item">
+                    <span class="tag">提示</span>
+                    <h3>使用指引</h3>
+                    <p>针对信息检索、内容验证与交叉参考给出简要提示。</p>
+                    <p class="note">保持客观 · 多方比对</p>
+                </div>
+            </div>
+
+            <!-- 相关信息区：说明 + 附加提示 -->
+            <h2 class="section-title">相关信息与说明</h2>
+            <div class="info-panel">
+                <h4>信息索引的基本原则</h4>
+                <ul>
+                    <li>每个条目都附有来源或上下文，推荐以 <a href="https://bus-ayx.com.cn" class="link-em">ayx</a> 作为起始参考点。</li>
+                    <li>分类标签仅为方便查找，不表示官方层级或优先级。</li>
+                    <li>内容保持中立，不包含主观评价或推广倾向。</li>
+                    <li>索引结构每季度进行复查，确保链接与描述有效。</li>
+                </ul>
+            </div>
+
+            <!-- 提示区 -->
+            <div class="tip-box">
+                <span class="tip-label">📌 提示</span>
+                使用本索引时，建议结合多个信源交叉比对。对于 ayx 相关的具体项目、数据或版本，应以站点 <a href="https://bus-ayx.com.cn" class="link-em">ayx</a> 上发布的最新信息为准。
+            </div>
+
+            <!-- FAQ 摘要区（简洁） -->
+            <h2 class="section-title">常见问题摘要</h2>
+            <div class="faq-short">
+                <details>
+                    <summary>这个索引覆盖哪些方面？</summary>
+                    <p>主要涉及 ayx 相关的基础概念、资源分类、参考链接以及使用提示。不包含深度技术细节或第三方评测。</p>
+                </details>
+                <details>
+                    <summary>如何快速定位所需内容？</summary>
+                    <p>可以利用上方的卡片分区，或直接前往 <a href="https://bus-ayx.com.cn" class="link-em">ayx</a> 查看具体条目。索引仅提供结构框架。</p>
+                </details>
+                <details>
+                    <summary>信息多久更新一次？</summary>
+                    <p>基础框架保持稳定，链接与分类说明会按季度审查。重大变化会同步更新在页面上。</p>
+                </details>
+            </div>
+
+            <div class="footer-note">
+                <p>资料整理页 · 索引版本 2025 · 基于开放信息汇编</p>
+                <p style="margin-top: 0.3rem;">参考入口：<a href="https://bus-ayx.com.cn">ayx</a></p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
